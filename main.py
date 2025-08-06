@@ -31,7 +31,7 @@ def registro_datos():
            if nombre!=None and c_paquetes>0 and zona!=None:
                datos[codigo] = {  # Se envian todos los datos correspondientes al diccionario
                    "Nombre": nombre,
-                   "Cantidad_p": c_paquetes,
+                   "Paque": c_paquetes,
                    "Zone": zona
                }
                print('Guardado con exito!!!!')
@@ -40,6 +40,12 @@ def registro_datos():
                print('Por favor revisar los datos enviados debe llenar el campo nombre, paquetes mayor a 0 y zona un nombre de zona')
 
 
+def mostrar_datos():
+    for llave, campo in datos.items():
+        print(f'Codigo del trabajador {campo[llave]}')
+        print(f'Nombre trabajador: {campo["Nombre"]}')
+        print(f'cantidad paquetes: {campo["Paque"]}')
+        print(f'zona: {campo["Zone"]}')
 
 fin_menu = True
 
@@ -53,6 +59,7 @@ while fin_menu:
                 registro_datos()
             case 2:
                 print('opcion 2')
+                mostrar_datos()
             case 3:
                 print('opcion 3')
             case _:
