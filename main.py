@@ -2,20 +2,36 @@ from inflect import pl_sb_C_en_ina
 
 datos = {}
 
+def validacion(lista_datos, buscar):
+    if buscar not in lista_datos:
+        return  True
+    else:
+        return False
+
+
+
+
 def registro_datos():
     print('\t\tBienvenido a registro de informacion')
-    cantidad = int(input('Ingrese el numero de repartidores del que trabjaaron hoy: '))
+    cantidad = int(input('Ingrese el numero de repartidores del que trabjaron hoy: '))
     for tmp in range(cantidad):
        codigo = int(input('Ingrese el codigo del trabajador: '))
+       # Envio las llaves y la llave a buscar para pasar al siguiente si no lo vuelve a intentar
+
+       while True:
+           if validacion(list(datos.keys()),codigo):
+               break
+           else:
+               print('Error se encontraron datos coincidentes por favor verificar')
+
        nombre = input('Ingrese el nombre: ')
        c_paquetes = int(input('Ingrese la cantidad de paquetes: '))
-       zona = input('Ingrese la zona asignadaa para el repartidor: ')
+       zona = input('Ingrese la zona asignada para el repartidor: ')
        datos[codigo]={ #Se envian todos los datos correspondientes al diccionario
            "Nombre" : nombre,
            "Cantidad_p" : c_paquetes,
            "Zone" : zona
        }
-
 
 
 fin_menu = True
