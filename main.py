@@ -24,14 +24,21 @@ def registro_datos():
            else:
                print('Error se encontraron datos coincidentes por favor verificar')
 
-       nombre = input('Ingrese el nombre: ')
-       c_paquetes = int(input('Ingrese la cantidad de paquetes: '))
-       zona = input('Ingrese la zona asignada para el repartidor: ')
-       datos[codigo]={ #Se envian todos los datos correspondientes al diccionario
-           "Nombre" : nombre,
-           "Cantidad_p" : c_paquetes,
-           "Zone" : zona
-       }
+       while True:
+           nombre = input('Ingrese el nombre: ')
+           c_paquetes = int(input('Ingrese la cantidad de paquetes: '))
+           zona = input('Ingrese la zona asignada para el repartidor: ')
+           if nombre!=None and c_paquetes>0 and zona!=None:
+               datos[codigo] = {  # Se envian todos los datos correspondientes al diccionario
+                   "Nombre": nombre,
+                   "Cantidad_p": c_paquetes,
+                   "Zone": zona
+               }
+               print('Guardado con exito!!!!')
+               break
+           else:
+               print('Por favor revisar los datos enviados debe llenar el campo nombre, paquetes mayor a 0 y zona un nombre de zona')
+
 
 
 fin_menu = True
